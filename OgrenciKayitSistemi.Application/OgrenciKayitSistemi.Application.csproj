@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\EfCore\Context\" />
+    <Folder Include="Abstractions\EfCore\UnitOfWork\" />
+    <Folder Include="DTOs\Models\" />
+    <Folder Include="DTOs\Params\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OgrenciKayitSistemi.Domain\OgrenciKayitSistemi.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
