@@ -1,11 +1,23 @@
+using OgrenciKayitSistemi.Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Configuration.AddJsonFile($"appsettings.prod.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appsettings.json", optional: true, reloadOnChange: true);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplicationServices(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options => options.AddPolicy("ApiCorsPolicy", policy =>
+{
+    policy
+    .WithOrigins("http://localhost:7118")
+    .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+}));
 
 var app = builder.Build();
 
@@ -17,6 +29,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseCors("ApiCorsPolicy");
 
 app.UseAuthorization();
 

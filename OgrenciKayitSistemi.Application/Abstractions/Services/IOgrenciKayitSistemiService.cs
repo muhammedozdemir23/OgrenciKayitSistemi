@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OgrenciKayitSistemi.Application.DTOs.Models;
+using OgrenciKayitSistemi.Application.DTOs.Models.Ortak;
+using OgrenciKayitSistemi.Application.DTOs.Params;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +11,11 @@ namespace OgrenciKayitSistemi.Application.Abstractions.Services
 {
     public interface IOgrenciKayitSistemiService
     {
+        #region DersTablo İşlemleri
+        Task<ServiceResponse<List<DersListesiDto>?>> DersListesiGetir();
+        Task<ServiceResponse<string>> DersEkle(DersEklePar p);
+        Task<ServiceResponse<string>> DersGuncelle(DersGuncellePar p);
+        Task<ServiceResponse<string>> DersSil(DersSilPar p);
+        #endregion
     }
 }

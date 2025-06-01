@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Domain.Entities
+namespace OgrenciKayitSistemi.Application.DTOs.Params
 {
-    public abstract class BaseEntity
+    public class DersSilPar
     {
+        public long DersId { get; set; }
     }
 }
