@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Application.Abstractions.EfCore.Context
+namespace OgrenciKayitSistemi.Domain.Abstractions.EfCore.Context
 {
     public abstract class BaseOgrenciKayitDbContext : DbContext
     {

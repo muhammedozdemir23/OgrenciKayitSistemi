@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OgrenciKayitSistemi.Application.Abstractions.Services;
+using OgrenciKayitSistemi.Application.Abstractions;
 using OgrenciKayitSistemi.Application.DTOs.Params;
 
 namespace OgrenciKayitSistemi.API.Controllers

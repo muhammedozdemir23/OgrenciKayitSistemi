@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Application.Abstractions.Services
+namespace OgrenciKayitSistemi.Application.Abstractions
 {
     public interface IOgrenciKayitSistemiService
     {

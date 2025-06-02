@@ -1,11 +1,11 @@
-﻿using OgrenciKayitSistemi.Application.Abstractions.EfCore.Repositories;
+﻿using OgrenciKayitSistemi.Domain.Abstractions.EfCore.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork
+namespace OgrenciKayitSistemi.Domain.Abstractions.EfCore.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {

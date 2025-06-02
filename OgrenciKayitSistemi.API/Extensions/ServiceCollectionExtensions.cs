@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OgrenciKayitSistemi.Application.Abstractions;
 using OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork;
-using OgrenciKayitSistemi.Application.Abstractions.Services;
 using OgrenciKayitSistemi.Persistence.EfCore.Context;
 using OgrenciKayitSistemi.Persistence.EfCore.UnitOfWork;
 using OgrenciKayitSistemi.Persistence.Services;

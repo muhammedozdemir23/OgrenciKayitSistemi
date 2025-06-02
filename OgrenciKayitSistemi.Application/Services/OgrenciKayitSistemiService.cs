@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
+using OgrenciKayitSistemi.Application.Abstractions;
 using OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork;
-using OgrenciKayitSistemi.Application.Abstractions.Services;
 using OgrenciKayitSistemi.Application.DTOs.Models;
 using OgrenciKayitSistemi.Application.DTOs.Models.Ortak;
 using OgrenciKayitSistemi.Application.DTOs.Params;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Persistence.Services
+namespace OgrenciKayitSistemi.Application.Services
 {
     public class OgrenciKayitSistemiService : IOgrenciKayitSistemiService
     {

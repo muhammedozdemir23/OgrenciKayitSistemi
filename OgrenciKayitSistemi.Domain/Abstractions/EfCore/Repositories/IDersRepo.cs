@@ -1,4 +1,4 @@
-﻿using OgrenciKayitSistemi.Application.Abstractions.EfCore.Context;
+﻿using OgrenciKayitSistemi.Domain.Abstractions.EfCore.Context;
 using OgrenciKayitSistemi.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Application.Abstractions.EfCore.Repositories
+namespace OgrenciKayitSistemi.Domain.Abstractions.EfCore.Repositories
 {
     public interface IDersRepo : IRepo<DersTablo, BaseOgrenciKayitDbContext>
     {

@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OgrenciKayitSistemi.Application.Abstractions.EfCore.Repositories
+namespace OgrenciKayitSistemi.Domain.Abstractions.EfCore.Repositories
 {
     public interface IRepo<TEntity, TDbContext>
         where TEntity : BaseEntity
