@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
-using OgrenciKayitSistemi.Application.Abstractions.EfCore.Repositories;
-using OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork;
+using OgrenciKayitSistemi.Domain.Abstractions.EfCore.Repositories;
+using OgrenciKayitSistemi.Domain.Abstractions.EfCore.UnitOfWork;
 using OgrenciKayitSistemi.Persistence.EfCore.Context;
 using OgrenciKayitSistemi.Persistence.EfCore.Repositories;
 using System;
@@ -15,6 +15,7 @@ namespace OgrenciKayitSistemi.Persistence.EfCore.UnitOfWork
     {
         protected OgrenciKayitDbContext ogrenciKayitDbContext;
         private IDersRepo? DersRepo;
+        private IOgrenciRepo? OgrenciRepo;
 
         public UnitOfWork(OgrenciKayitDbContext ogrenciKayitDbContext)
         {
@@ -22,6 +23,7 @@ namespace OgrenciKayitSistemi.Persistence.EfCore.UnitOfWork
         }
 
         public IDersRepo _DersRepo => DersRepo ??= new DersRepo(ogrenciKayitDbContext);
+        public IOgrenciRepo _OgrenciRepo => OgrenciRepo ??= new OgrenciRepo(ogrenciKayitDbContext);
 
         public async Task<int> CommitAsync()
         {

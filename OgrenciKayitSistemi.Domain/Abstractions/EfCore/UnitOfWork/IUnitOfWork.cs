@@ -10,6 +10,7 @@ namespace OgrenciKayitSistemi.Domain.Abstractions.EfCore.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         IDersRepo _DersRepo { get; }
+        IOgrenciRepo _OgrenciRepo { get; }
 
 
 

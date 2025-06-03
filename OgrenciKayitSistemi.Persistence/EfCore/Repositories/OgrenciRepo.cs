@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace OgrenciKayitSistemi.Persistence.EfCore.Repositories
 {
-    public class DersRepo : Repo<DersTablo, OgrenciKayitDbContext>, IDersRepo
+    public class OgrenciRepo : Repo<OgrenciTablo,OgrenciKayitDbContext>, IOgrenciRepo
     {
-        public DersRepo(OgrenciKayitDbContext context) : base(context) { }
+        public OgrenciRepo(OgrenciKayitDbContext context) :base(context) { }
     }
 }
