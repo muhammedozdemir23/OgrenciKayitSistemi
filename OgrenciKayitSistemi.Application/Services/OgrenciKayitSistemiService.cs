@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using OgrenciKayitSistemi.Application.Abstractions;
-using OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork;
 using OgrenciKayitSistemi.Application.DTOs.Models;
 using OgrenciKayitSistemi.Application.DTOs.Models.Ortak;
 using OgrenciKayitSistemi.Application.DTOs.Params;
+using OgrenciKayitSistemi.Domain.Abstractions.EfCore.UnitOfWork;
 using OgrenciKayitSistemi.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,12 +16,10 @@ namespace OgrenciKayitSistemi.Application.Services
     public class OgrenciKayitSistemiService : IOgrenciKayitSistemiService
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IConfiguration Configuration;
 
-        public OgrenciKayitSistemiService(IUnitOfWork unitOfWork, IConfiguration configuration)
+        public OgrenciKayitSistemiService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            Configuration = configuration;
         }
 
         #region DersTablo İşlemleri
@@ -43,7 +41,6 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-
         public async Task<ServiceResponse<string>> DersEkle(DersEklePar p)
         {
             try
@@ -68,7 +65,6 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-
         public async Task<ServiceResponse<string>> DersGuncelle(DersGuncellePar p)
         {
             try
@@ -90,7 +86,6 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-
         public async Task<ServiceResponse<string>> DersSil(DersSilPar p)
         {
             try
@@ -105,6 +100,28 @@ namespace OgrenciKayitSistemi.Application.Services
                 await unitOfWork.CommitAsync();
 
                 return new(true, "Silme İşlemi Başarılı", null);
+            }
+            catch (Exception ex)
+            {
+                return new(false, ex.Message, null);
+            }
+        }
+        #endregion
+
+        #region OgrenciTablo İşlemleri
+        public async Task<ServiceResponse<List<OgrenciListesiDto>?>> OgrenciListesiGetir()
+        {
+            try
+            {
+                var ogrenciListesiGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null).Select(s => new OgrenciListesiDto
+                {
+                    Ad = s.Ad,
+                    Soyad = s.Soyad,
+                    SinifAdi = s.Sinif.Ad
+                }).ToList();
+
+                return new(true, "Başarılı", ogrenciListesiGetir);
+
             }
             catch (Exception ex)
             {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using OgrenciKayitSistemi.Application.Abstractions.EfCore.Repositories;
+using OgrenciKayitSistemi.Domain.Abstractions.EfCore.Repositories;
 using OgrenciKayitSistemi.Domain.Entities;
 using System;
 using System.Collections.Generic;
