@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OgrenciKayitSistemi.Application.Abstractions;
-using OgrenciKayitSistemi.Application.Abstractions.EfCore.UnitOfWork;
+using OgrenciKayitSistemi.Application.Services;
+using OgrenciKayitSistemi.Domain.Abstractions.EfCore.UnitOfWork;
 using OgrenciKayitSistemi.Persistence.EfCore.Context;
 using OgrenciKayitSistemi.Persistence.EfCore.UnitOfWork;
-using OgrenciKayitSistemi.Persistence.Services;
 
 
 namespace OgrenciKayitSistemi.Api.Extensions

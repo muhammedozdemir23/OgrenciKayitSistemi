@@ -70,6 +70,35 @@ namespace OgrenciKayitSistemi.API.Controllers
         }
         #endregion
 
+        #region OgrenciTablo İşlemleri
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> OgrenciListesiGetir()
+        {
+            try
+            {
+                var sonuc = await ogrenciKayitSistemiService.OgrenciListesiGetir();
+                return Ok(sonuc);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> OgrenciEkle(OgrenciEklePar p)
+        {
+            try
+            {
+                var sonuc = await ogrenciKayitSistemiService.OgrenciEkle(p);
+                return Ok(sonuc);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        #endregion
+
 
     }
 }

@@ -128,6 +128,35 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
+
+        public async Task<ServiceResponse<string>> OgrenciEkle(OgrenciEklePar p)
+        {
+            try
+            {
+                if (p.sinifId == null || p.ogrenciAd == null || p.ogrenciSoyad == null)
+                    return new(true, "Alanlar boş gönderilemez!", null);
+
+                OgrenciTablo ogrenciEkle = new OgrenciTablo()
+                {
+                    Ad = p.ogrenciAd,
+                    Soyad = p.ogrenciSoyad,
+                    SinifId = p.sinifId,
+                    Taktif = DateTime.Now,
+                };
+
+                await unitOfWork._OgrenciRepo.AddAsync(ogrenciEkle);
+                await unitOfWork.CommitAsync();
+
+
+                return new(true, "Kayıt Başarılı", null);
+            }
+            catch (Exception ex)
+            {
+                return new(false, ex.Message, null);
+            }
+        }
+
+
         #endregion
 
 

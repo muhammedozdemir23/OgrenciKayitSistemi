@@ -17,5 +17,10 @@ namespace OgrenciKayitSistemi.Application.Abstractions
         Task<ServiceResponse<string>> DersGuncelle(DersGuncellePar p);
         Task<ServiceResponse<string>> DersSil(DersSilPar p);
         #endregion
+
+        #region OgrenciTablo İşlemleri
+        Task<ServiceResponse<List<OgrenciListesiDto>?>> OgrenciListesiGetir();
+        Task<ServiceResponse<string>> OgrenciEkle(OgrenciEklePar p);
+        #endregion
     }
 }
