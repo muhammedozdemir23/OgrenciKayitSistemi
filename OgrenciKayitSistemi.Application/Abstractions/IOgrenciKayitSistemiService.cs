@@ -21,6 +21,10 @@ namespace OgrenciKayitSistemi.Application.Abstractions
         #region OgrenciTablo İşlemleri
         Task<ServiceResponse<List<OgrenciListesiDto>?>> OgrenciListesiGetir();
         Task<ServiceResponse<string>> OgrenciEkle(OgrenciEklePar p);
+<<<<<<< HEAD
+=======
+        Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p);
+>>>>>>> 3b29d94 (ogrenci guncelle)
         #endregion
     }
 }

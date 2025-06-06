@@ -156,6 +156,32 @@ namespace OgrenciKayitSistemi.Application.Services
             }
         }
 
+<<<<<<< HEAD
+=======
+        public async Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p){
+            try
+            {
+                if (p.ogrenciAd == null || p.ogrenciSoyad == null || p.sinifId==null || p.ogrenciId)
+                    return new(true, "Boş veri gönderilemez!", null);
+
+                var guncellenecekOgrenciGetir = unitOfWork._OgrenciReposRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
+
+                guncellenecekOgrenciGetir.Ad = p.ogrenciAd;
+                guncellenecekOgrenciGetir.Soyad = p.ogrenciSoyad;
+                guncellenecekOgrenciGetir.SinifId = p.sinifId;
+                guncellenecekOgrenciGetir.Taktif = DateTime.Now;
+                unitOfWork._DersRepo.Update(guncellenecekOgrenciGetir);
+                await unitOfWork.CommitAsync();
+
+                return new(true, "Güncelleme Başarılı", null);
+            }
+            catch (Exception ex)
+            {
+                return new(false, ex.Message, null);
+            }
+        }
+
+>>>>>>> 3b29d94 (ogrenci guncelle)
 
         #endregion
 
