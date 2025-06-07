@@ -97,6 +97,19 @@ namespace OgrenciKayitSistemi.API.Controllers
                 return Content(ex.Message);
             }
         }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> OgrenciGuncelle(OgrenciGuncellePar p)
+        {
+            try
+            {
+                var sonuc = await ogrenciKayitSistemiService.OgrenciGuncelle();
+                return Ok(sonuc);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
         #endregion
 
 
