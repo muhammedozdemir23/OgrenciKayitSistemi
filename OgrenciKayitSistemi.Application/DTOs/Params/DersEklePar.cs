@@ -8,6 +8,6 @@ namespace OgrenciKayitSistemi.Application.DTOs.Params
 {
     public class DersEklePar
     {
-        public string DersAdi { get; set; }
+        public string dersAdi { get; set; }
     }
 }

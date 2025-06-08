@@ -8,6 +8,6 @@ namespace OgrenciKayitSistemi.Application.DTOs.Params
 {
     public class DersSilPar
     {
-        public long DersId { get; set; }
+        public long dersId { get; set; }
     }
 }

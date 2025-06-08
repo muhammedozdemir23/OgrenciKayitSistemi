@@ -45,12 +45,12 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.DersAdi == null)
+                if (p.dersAdi == null)
                     return new(true, "Ders Adı Boş Bırakılamaz!", null);
 
                 DersTablo dersEkle = new DersTablo()
                 {
-                    Ad = p.DersAdi,
+                    Ad = p.dersAdi,
                     Taktif = DateTime.Now,
                 };
 

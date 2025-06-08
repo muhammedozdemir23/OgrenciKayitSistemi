@@ -8,7 +8,7 @@ namespace OgrenciKayitSistemi.Application.DTOs.Params
 {
     public class DersGuncellePar
     {
-        public long DersId { get; set; }
-        public string DersAdi { get; set; }
+        public long dersId { get; set; }
+        public string dersAdi { get; set; }
     }
 }
