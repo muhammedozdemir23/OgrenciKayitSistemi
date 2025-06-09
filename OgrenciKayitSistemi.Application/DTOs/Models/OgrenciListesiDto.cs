@@ -8,9 +8,9 @@ namespace OgrenciKayitSistemi.Application.DTOs.Models
 {
     public class OgrenciListesiDto
     {
-        public string? Ad { get; set; }
+        public string? ad { get; set; }
 
-        public string? Soyad { get; set; }
-        public string? SinifAdi { get; set; }
+        public string? soyad { get; set; }
+        public string? sinifAdi { get; set; }
     }
 }

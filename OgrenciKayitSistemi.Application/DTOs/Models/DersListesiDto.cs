@@ -8,7 +8,7 @@ namespace OgrenciKayitSistemi.Application.DTOs.Models
 {
     public class DersListesiDto
     {
-        public long Id { get; set; }
-        public string? Ad { get; set; }
+        public long id { get; set; }
+        public string? ad { get; set; }
     }
 }
