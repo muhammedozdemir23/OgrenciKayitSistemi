@@ -69,12 +69,12 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.DersId == null && p.DersAdi == null)
+                if (p.dersId == null && p.dersAdi == null)
                     return new(true, "Alanlar Boş Bırakılamaz!", null);
 
-                var guncellenecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.DersId).FirstOrDefault();
+                var guncellenecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.dersId).FirstOrDefault();
 
-                guncellenecekDersGetir.Ad = p.DersAdi;
+                guncellenecekDersGetir.Ad = p.dersAdi;
                 guncellenecekDersGetir.Taktif = DateTime.Now;
                 unitOfWork._DersRepo.Update(guncellenecekDersGetir);
                 await unitOfWork.CommitAsync();
@@ -90,10 +90,10 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.DersId == null)
+                if (p.dersId == null)
                     return new(true, "Silme İşlemi Başarısız", null);
 
-                var silinecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.DersId).FirstOrDefault();
+                var silinecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.dersId).FirstOrDefault();
 
                 silinecekDersGetir.Tpasif = DateTime.Now;
                 unitOfWork._DersRepo.Update(silinecekDersGetir);
