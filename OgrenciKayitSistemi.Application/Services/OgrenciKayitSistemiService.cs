@@ -181,6 +181,27 @@ namespace OgrenciKayitSistemi.Application.Services
             }
         }
 
+        public async Task<ServiceResponse<string>> OgrenciSil(OgrenciSilPar p)
+        {
+            try
+            {
+                if (p.ogrenciId == null && p.sinifId == null)
+                    return new(true, "Silme İşlemi Başarısız", null);
+
+                var silinecekOgrenciGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
+
+                silinecekOgrenciGetir.Tpasif = DateTime.Now;
+                unitOfWork._OgrenciRepo.Update(silinecekOgrenciGetir);
+                await unitOfWork.CommitAsync();
+
+                return new(true, "Silme İşlemi Başarılı", null);
+            }
+            catch (Exception ex)
+            {
+                return new(false, ex.Message, null);
+            }
+        }
+
 >>>>>>> 3b29d94 (ogrenci guncelle)
 
         #endregion
