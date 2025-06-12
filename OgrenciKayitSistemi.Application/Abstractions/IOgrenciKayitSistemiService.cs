@@ -24,6 +24,7 @@ namespace OgrenciKayitSistemi.Application.Abstractions
 <<<<<<< HEAD
 =======
         Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p);
+        Task<ServiceResponse<string>> OgrenciSil(OgrenciSilPar p);
 >>>>>>> 3b29d94 (ogrenci guncelle)
         #endregion
     }
