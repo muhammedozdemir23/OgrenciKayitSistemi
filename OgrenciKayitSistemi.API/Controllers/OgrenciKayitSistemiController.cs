@@ -110,6 +110,19 @@ namespace OgrenciKayitSistemi.API.Controllers
                 return Content(ex.Message);
             }
         }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> OgrenciSil(OgrenciSilPar p)
+        {
+            try
+            {
+                var sonuc = await ogrenciKayitSistemiService.OgrenciSil();
+                return Ok(sonuc);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
         #endregion
 
 
