@@ -155,9 +155,6 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-
-<<<<<<< HEAD
-=======
         public async Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p){
             try
             {
@@ -201,8 +198,6 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-
->>>>>>> 3b29d94 (ogrenci guncelle)
 
         #endregion
 
