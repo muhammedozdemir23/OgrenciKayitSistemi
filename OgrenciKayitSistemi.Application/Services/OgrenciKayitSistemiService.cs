@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using OgrenciKayitSistemi.Application.Abstractions;
+﻿using OgrenciKayitSistemi.Application.Abstractions;
 using OgrenciKayitSistemi.Application.DTOs.Models;
 using OgrenciKayitSistemi.Application.DTOs.Models.Ortak;
 using OgrenciKayitSistemi.Application.DTOs.Params;
@@ -29,8 +28,8 @@ namespace OgrenciKayitSistemi.Application.Services
             {
                 var dersListesi = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null).Select(s => new DersListesiDto()
                 {
-                    Id = s.Id,
-                    Ad = s.Ad
+                    id = s.Id,
+                    ad = s.Ad
                 }).ToList();
 
 
@@ -115,9 +114,9 @@ namespace OgrenciKayitSistemi.Application.Services
             {
                 var ogrenciListesiGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null).Select(s => new OgrenciListesiDto
                 {
-                    Ad = s.Ad,
-                    Soyad = s.Soyad,
-                    SinifAdi = s.Sinif.Ad
+                    ad = s.Ad,
+                    soyad = s.Soyad,
+                    sinifAdi = s.Sinif.Ad
                 }).ToList();
 
                 return new(true, "Başarılı", ogrenciListesiGetir);
@@ -155,19 +154,20 @@ namespace OgrenciKayitSistemi.Application.Services
                 return new(false, ex.Message, null);
             }
         }
-        public async Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p){
+        public async Task<ServiceResponse<string>> OgrenciGuncelle(OgrenciGuncellePar p)
+        {
             try
             {
-                if (p.ogrenciAd == null || p.ogrenciSoyad == null || p.sinifId==null || p.ogrenciId)
+                if (p.ogrenciAd == null || p.ogrenciSoyad == null || p.sinifId == null || p.ogrenciId == null)
                     return new(true, "Boş veri gönderilemez!", null);
 
-                var guncellenecekOgrenciGetir = unitOfWork._OgrenciReposRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
+                var guncellenecekOgrenciGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
 
                 guncellenecekOgrenciGetir.Ad = p.ogrenciAd;
                 guncellenecekOgrenciGetir.Soyad = p.ogrenciSoyad;
                 guncellenecekOgrenciGetir.SinifId = p.sinifId;
                 guncellenecekOgrenciGetir.Taktif = DateTime.Now;
-                unitOfWork._DersRepo.Update(guncellenecekOgrenciGetir);
+                unitOfWork._OgrenciRepo.Update(guncellenecekOgrenciGetir);
                 await unitOfWork.CommitAsync();
 
                 return new(true, "Güncelleme Başarılı", null);

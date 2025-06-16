@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OgrenciKayitSistemi.Application.DTOs.Params
 {
-    public class OgrenciEklePar
+    public class OgrenciGuncellePar
     {
         public long ogrenciId { get; set; }
 
