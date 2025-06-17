@@ -102,7 +102,7 @@ namespace OgrenciKayitSistemi.API.Controllers
         {
             try
             {
-                var sonuc = await ogrenciKayitSistemiService.OgrenciGuncelle();
+                var sonuc = await ogrenciKayitSistemiService.OgrenciGuncelle(p);
                 return Ok(sonuc);
             }
             catch (Exception ex)
@@ -115,7 +115,7 @@ namespace OgrenciKayitSistemi.API.Controllers
         {
             try
             {
-                var sonuc = await ogrenciKayitSistemiService.OgrenciSil();
+                var sonuc = await ogrenciKayitSistemiService.OgrenciSil(p);
                 return Ok(sonuc);
             }
             catch (Exception ex)
