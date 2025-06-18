@@ -170,7 +170,7 @@ namespace OgrenciKayitSistemi.Application.Services
                 unitOfWork._OgrenciRepo.Update(guncellenecekOgrenciGetir);
                 await unitOfWork.CommitAsync();
 
-                return new(true, "Güncelleme Başarılı", null);
+                return new(true, "Güncelleme İşlemi Başarılı", null);
             }
             catch (Exception ex)
             {
