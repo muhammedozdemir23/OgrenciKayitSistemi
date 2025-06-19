@@ -158,7 +158,7 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.ogrenciAd == null || p.ogrenciSoyad == null || p.sinifId == null || p.ogrenciId == null)
+                if (p.ogrenciAd == null || p.ogrenciSoyad == null || p.sinifId.ToString() == null || p.ogrenciId.ToString() == null)
                     return new(true, "Boş veri gönderilemez!", null);
 
                 var guncellenecekOgrenciGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
@@ -182,7 +182,7 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.ogrenciId == null && p.sinifId == null)
+                if (p.ogrenciId.ToString() == null && p.sinifId.ToString() == null)
                     return new(true, "Silme İşlemi Başarısız", null);
 
                 var silinecekOgrenciGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
