@@ -68,7 +68,7 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.dersId == null && p.dersAdi == null)
+                if (p.dersId.ToString() == null && p.dersAdi == null)
                     return new(true, "Alanlar Boş Bırakılamaz!", null);
 
                 var guncellenecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.dersId).FirstOrDefault();
@@ -89,7 +89,7 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.dersId == null)
+                if (p.dersId.ToString() == null)
                     return new(true, "Silme İşlemi Başarısız", null);
 
                 var silinecekDersGetir = unitOfWork._DersRepo.GetWhere(g => g.Tpasif == null && g.Id == p.dersId).FirstOrDefault();
@@ -132,7 +132,7 @@ namespace OgrenciKayitSistemi.Application.Services
         {
             try
             {
-                if (p.sinifId == null || p.ogrenciAd == null || p.ogrenciSoyad == null)
+                if (p.sinifId.ToString() == null || p.ogrenciAd == null || p.ogrenciSoyad == null)
                     return new(true, "Alanlar boş gönderilemez!", null);
 
                 OgrenciTablo ogrenciEkle = new OgrenciTablo()
