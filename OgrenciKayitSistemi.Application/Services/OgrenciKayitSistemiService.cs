@@ -186,8 +186,8 @@ namespace OgrenciKayitSistemi.Application.Services
                     return new(true, "Silme İşlemi Başarısız", null);
 
                 var silinecekOgrenciGetir = unitOfWork._OgrenciRepo.GetWhere(g => g.Tpasif == null && g.Id == p.ogrenciId).FirstOrDefault();
-
-                silinecekOgrenciGetir.Tpasif = DateTime.Now;
+                var now = DateTime.Now;
+                silinecekOgrenciGetir.Tpasif = now;
                 unitOfWork._OgrenciRepo.Update(silinecekOgrenciGetir);
                 await unitOfWork.CommitAsync();
 
